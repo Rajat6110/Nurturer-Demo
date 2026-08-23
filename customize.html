@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Design Studio | NURTURER</title>
+<meta name="description" content="Personalize a copper-lined NURTURER bowl with your pet's name, custom text, font, finish color, and motif. Approve artwork right from your account before we etch.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Custom Design Studio &mdash; B2C &amp; B2B</span>
+    <h1>Their name deserves better than a sticker.</h1>
+    <p class="lead">Design a one-of-one copper-lined bowl in five steps. Our studio reviews every submission, sends you digital artwork, and only etches after you tap "Approve" &mdash; tracked live in your account dashboard.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="studio">
+      <div>
+        <div class="steps-rail" id="stepsRail"></div>
+
+        <div class="form-card">
+          <!-- STEP 1: model -->
+          <div data-step="1">
+            <h3 style="font-size:20px">1 &bull; Choose the bowl model</h3>
+            <div class="field mt-1"><label for="modelSel">Model</label>
+              <select id="modelSel"></select>
+            </div>
+            <div class="field"><label for="sizeSel">Size &amp; life stage</label><select id="sizeSel"></select></div>
+            <p class="tag-note" id="modelNote"></p>
+          </div>
+
+          <!-- STEP 2: text -->
+          <div data-step="2" hidden>
+            <h3 style="font-size:20px">2 &bull; The engraving text</h3>
+            <div class="field mt-1"><label for="engraveText">Pet name or custom text <span class="hint">(max 14 characters)</span></label>
+              <input type="text" id="engraveText" maxlength="14" placeholder="e.g. BANTAY, Miming, Good Girl">
+            </div>
+            <label style="display:flex;gap:10px;font-size:14px;font-weight:700;margin-top:6px">
+              <input type="checkbox" id="b2bLogo"> This is a business order (add logo / co-branding - our studio will contact you)
+            </label>
+          </div>
+
+          <!-- STEP 3: font -->
+          <div data-step="3" hidden>
+            <h3 style="font-size:20px">3 &bull; Pick the lettering style</h3>
+            <div class="chip-set mt-1" style="gap:12px" id="fontRow"></div>
+          </div>
+
+          <!-- STEP 4: color -->
+          <div data-step="4" hidden>
+            <h3 style="font-size:20px">4 &bull; Choose the finish</h3>
+            <div class="swatch-row mt-1" id="colorRow" style="flex-wrap:wrap"></div>
+            <p class="tag-note mt-1" id="finishName"></p>
+          </div>
+
+          <!-- STEP 5: motif + review -->
+          <div data-step="5" hidden>
+            <h3 style="font-size:20px">5 &bull; Add a motif (optional)</h3>
+            <div class="motif-row mt-1" id="motifRow" style="flex-wrap:wrap"></div>
+            <div class="card mt-3" style="padding:22px;background:var(--green-pale);border-color:#cfe3d6">
+              <b style="font-size:15px">What happens after you submit?</b>
+              <ol class="timeline mt-1" style="margin-left:-10px">
+                <li class="done"><b>Submitted</b>Your brief lands with our design studio.</li>
+                <li><b>Digital proof within 24h</b>We send artwork to your account.</li>
+                <li><b>You approve</b>Nothing is engraved without your sign-off.</li>
+                <li><b>Hand-finished &amp; shipped</b>Etching takes 2-4 days before dispatch.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;margin-top:26px;flex-wrap:wrap;gap:10px">
+            <button class="btn btn-ghost btn-sm" id="prevBtn">&larr; Back</button>
+            <button class="btn btn-primary" id="nextBtn">Next step &rarr;</button>
+            <button class="btn btn-dark" id="submitBtn" hidden>Submit design request</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE PREVIEW -->
+      <div class="studio-preview">
+        <div class="preview-stage" id="previewStage"></div>
+        <div class="summary-card mt-2" style="position:static">
+          <h3 style="font-size:17px;margin-bottom:10px">Your design summary</h3>
+          <div class="summary-line"><span>Model</span><b id="sumModel">-</b></div>
+          <div class="summary-line"><span>Size / life stage</span><b id="sumSize">-</b></div>
+          <div class="summary-line"><span>Engraving</span><b id="sumText">None yet</b></div>
+          <div class="summary-line"><span>Font / finish</span><b id="sumStyle">-</b></div>
+          <div class="summary-line"><span>Bowl price</span><b id="sumBase">-</b></div>
+          <div class="summary-line"><span>Custom engraving</span><b>&#8369;350</b></div>
+          <div class="summary-total"><span>Total</span><span id="sumTotal">-</span></div>
+          <p class="form-note">Free artwork revisions until you approve. Engraving fee is refunded if you cancel before production.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/customize.js"></script>
+</body>
+</html>

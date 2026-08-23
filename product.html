@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product | NURTURER</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="section tight" style="padding-top:34px">
+  <div class="wrap">
+    <p class="tag-note mb-1"><a href="shop.html">Shop</a> <span id="crumb">/ Product</span></p>
+    <div class="pdp" id="pdpRoot">
+      <!-- rendered by js/product.js -->
+      <div class="empty-state"><h3>Loading bowlâ€¦</h3></div>
+    </div>
+  </div>
+</section>
+
+<!-- Feature -> benefit table -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Why It Works</span><h2>Feature by feature, benefit by benefit.</h2></div>
+    <div class="card table-scroll" style="padding:10px 22px">
+      <table class="data-table">
+        <thead><tr><th>Feature</th><th>What it means for you &amp; your pet</th></tr></thead>
+        <tbody id="fbTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Trust content -->
+<section class="section tight">
+  <div class="wrap grid grid-2" style="align-items:start">
+    <div>
+      <div class="accordion" data-acc>
+        <div class="acc-item">
+          <button class="acc-head">Materials &amp; Safety<span class="chev">&#9662;</span></button>
+          <div class="acc-body"><div class="acc-body-inner">
+            Food-grade copper-lined interior over a powder-coated solid body. Free of BPA, phthalates, lead, and PVC. Copper contact surfaces are laboratory-tested for antimicrobial efficacy. Certified compliant with food-contact material standards for pet products.
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">Care Instructions<span class="chev">&#9662;</span></button>
+          <div class="acc-body"><div class="acc-body-inner">
+            Hand-wash weekly with mild soap and warm water (about 60 seconds). Wipe dry to keep the copper lining bright. Dishwasher-safe exterior coat on low heat. Avoid abrasive scouring pads and bleach-based cleaners.
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">Recommended Use<span class="chev">&#9662;</span></button>
+          <div class="acc-body"><div class="acc-body-inner">
+            Match rim height to your pet's shoulder: bowls should sit at or slightly below chest height. Start with the size guide above - when in doubt, size up. For flat-faced breeds and senior pets, elevated feeding reduces neck strain at every meal.
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">Warranty &amp; Certifications<span class="chev">&#9662;</span></button>
+          <div class="acc-body"><div class="acc-body-inner">
+            12-month warranty against manufacturing defects, plus our 30-day Clean Meal Promise: if your pet's bowl doesn't stay noticeably fresher than their old one, we'll refund you. Documentation available in the FAQ.
+          </div></div>
+        </div>
+      </div>
+    </div>
+    <div id="reviewsBlock"></div>
+  </div>
+</section>
+
+<!-- Related -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="section-head"><span class="kicker">Complete The Feeding Corner</span><h2>Pairs well with</h2></div>
+    <div class="grid grid-4" id="relatedGrid"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/product.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[data-acc] .acc-head").forEach(function (h) {
+    h.addEventListener("click", function () { h.parentElement.classList.toggle("open"); });
+  });
+});
+</script>
+</body>
+</html>

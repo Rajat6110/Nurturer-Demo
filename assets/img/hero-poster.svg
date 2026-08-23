@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Warm minimalist kitchen scene with an elevated copper-lined pet bowl">
+  <defs>
+    <linearGradient id="pBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fbf5ea"/><stop offset="60%" stop-color="#f3e7d3"/><stop offset="100%" stop-color="#ecd9bd"/>
+    </linearGradient>
+    <radialGradient id="pGlow" cx="0.68" cy="0.32" r="0.8">
+      <stop offset="0%" stop-color="#fff3dd" stop-opacity="0.95"/><stop offset="100%" stop-color="#fff3dd" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="pCu" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#eebd85"/><stop offset="45%" stop-color="#c07f3a"/><stop offset="100%" stop-color="#8a5220"/>
+    </linearGradient>
+    <linearGradient id="pWood" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a87c48"/><stop offset="100%" stop-color="#74522a"/>
+    </linearGradient>
+    <linearGradient id="pFloor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e2c399"/><stop offset="100%" stop-color="#cfa873"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#pBg)"/>
+  <rect width="1920" height="1080" fill="url(#pGlow)"/>
+  <circle cx="330" cy="270" r="300" fill="#f6ead6" opacity="0.8"/>
+  <!-- floor -->
+  <rect y="820" width="1920" height="260" fill="url(#pFloor)"/>
+  <ellipse cx="1260" cy="850" rx="380" ry="36" fill="rgba(90,58,25,0.14)"/>
+
+  <!-- golden puppy -->
+  <g transform="translate(880,560) scale(1.9)">
+    <path d="M60 30 Q95 8 130 30 Q150 42 148 74 Q146 100 118 106 L72 106 Q44 100 42 74 Q40 42 60 30 Z" fill="#d3a05f"/>
+    <ellipse cx="75" cy="34" rx="16" ry="26" fill="#b07f42" transform="rotate(-18 75 34)"/>
+    <ellipse cx="116" cy="34" rx="16" ry="26" fill="#b07f42" transform="rotate(18 116 34)"/>
+    <circle cx="82" cy="66" r="7" fill="#2a211b"/><circle cx="110" cy="66" r="7" fill="#2a211b"/>
+    <circle cx="84.5" cy="63.5" r="2.2" fill="#fff"/><circle cx="112.5" cy="63.5" r="2.2" fill="#fff"/>
+    <ellipse cx="96" cy="88" rx="9" ry="7" fill="#2a211b"/>
+    <path d="M96 95 L96 102 M96 102 Q88 110 80 105 M96 102 Q104 110 112 105" stroke="#2a211b" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- cream cat -->
+  <g transform="translate(1650,600) scale(1.6)">
+    <path d="M62 44 L58 14 L88 32 Z" fill="#cdbfa8"/><path d="M130 44 L134 14 L104 32 Z" fill="#cdbfa8"/>
+    <path d="M64 41 L61 21 L83 34 Z" fill="#efe4cd"/><path d="M128 41 L131 21 L109 34 Z" fill="#efe4cd"/>
+    <ellipse cx="96" cy="72" rx="42" ry="38" fill="#ddd0b8"/>
+    <ellipse cx="80" cy="66" rx="6" ry="8" fill="#3f6b52"/><ellipse cx="112" cy="66" rx="6" ry="8" fill="#3f6b52"/>
+    <path d="M92 82 Q96 86 100 82" stroke="#2a211b" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- stand -->
+  <rect x="1070" y="620" width="380" height="120" rx="26" fill="url(#pWood)"/>
+  <rect x="1092" y="736" width="336" height="34" rx="17" fill="#5d421f"/>
+
+  <!-- bowl -->
+  <path d="M985 400 Q996 580 1260 588 Q1524 580 1535 400 Z" fill="url(#pCu)" stroke="#7a4519" stroke-width="5"/>
+  <ellipse cx="1260" cy="400" rx="275" ry="80" fill="#eda95f" stroke="#a96a2c" stroke-width="5"/>
+  <ellipse cx="1260" cy="410" rx="228" ry="56" fill="#ffdca6"/>
+  <ellipse cx="1190" cy="398" rx="84" ry="20" fill="rgba(255,255,255,0.5)"/>
+</svg>

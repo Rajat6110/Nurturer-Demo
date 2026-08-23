@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog &amp; Guides | NURTURER</title>
+<meta name="description" content="Pet feeding guides, copper bowl care, health explainers, and behind-the-scenes from the NURTURER studio.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="page-hero">
+  <div class="wrap split" style="gap:30px">
+    <div>
+      <span class="kicker">The Bowl Blog &amp; Vlog</span>
+      <h1>Everything we learn, written down.</h1>
+      <p class="lead">Feeding science, care guides, new fur parent checklists, and studio stories - SEO-friendly reading that makes you smarter about every meal you serve.</p>
+    </div>
+    <div class="panel-visual panel-plain">
+      <svg viewBox="0 0 24 24" width="110" style="color:var(--copper-deep)"><path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13M8 7h7M8 11h5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap">
+    <div class="chip-set mb-2" id="blogFilter"></div>
+    <div class="grid grid-3" id="blogGrid"></div>
+
+    <div class="card mt-3" style="padding:34px;background:linear-gradient(130deg,var(--copper-pale),#fdf3e3)">
+      <span class="kicker">Content Calendar &mdash; Q4 2026 Starter</span>
+      <h2 style="font-size:26px;margin:10px 0 18px">What's publishing next (SEO/SEM-aligned)</h2>
+      <div class="table-scroll"><table class="data-table">
+        <thead><tr><th>Week</th><th>Format</th><th>Title / Target keyword</th><th>Funnel stage</th></tr></thead>
+        <tbody>
+          <tr><td>Oct W1</td><td>Article + Short</td><td>"Copper vs plastic pet bowls: what vets say" &bull; <i>copper pet bowl benefits</i></td><td>Awareness/Education</td></tr>
+          <tr><td>Oct W2</td><td>Vlog</td><td>"Setting up your first elevated feeding corner" &bull; <i>elevated dog bowl setup</i></td><td>Education</td></tr>
+          <tr><td>Oct W3</td><td>UGC Roundup</td><td>"10 cutest custom-engraved bowls of launch month" &bull; brand terms</td><td>Consideration/Advocacy</td></tr>
+          <tr><td>Nov W1</td><td>Guide</td><td>"Puppy feeding schedule by age (PH climate edition)" &bull; <i>puppy feeding guide philippines</i></td><td>Education</td></tr>
+          <tr><td>Nov W2</td><td>Case Study</td><td>"How a Cebu pet store tripled bowl sales with NURTURER" &bull; B2B terms</td><td>Expansion (B2B)</td></tr>
+          <tr><td>Nov W3</td><td>Care Series</td><td>"60-second copper bowl care routine" &bull; <i>how to clean copper bowl</i></td><td>Loyalty</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script>
+(function () {
+  document.addEventListener("DOMContentLoaded", function () {
+    var grid = document.getElementById("blogGrid");
+    var filterBar = document.getElementById("blogFilter");
+    var tags = ["All"].concat(NRT_POSTS.map(function (p) { return p.tag; }).filter(function (t, i, a) { return a.indexOf(t) === i; }));
+    var active = "All";
+
+    filterBar.innerHTML = tags.map(function (t) {
+      return '<button class="chip' + (t === "All" ? " on" : "") + '" data-tag="' + t + '">' + t + "</button>";
+    }).join("");
+
+    function render() {
+      var list = NRT_POSTS.filter(function (p) { return active === "All" || p.tag === active; });
+      grid.innerHTML = list.map(function (post, i) {
+        return '<article class="card blog-card" id="post-' + post.slug + '">' +
+          '<div class="thumb">' + (i % 2 ? window.NRT.petArt("cat") : window.NRT.petArt("dog")) + "</div>" +
+          '<div class="body"><span class="blog-tag">' + post.tag + " \u2022 " + post.minutes + ' min read</span>' +
+          '<h3 style="font-size:20px;margin-top:8px">' + post.title + "</h3>" +
+          '<p class="text-muted" style="font-size:14.5px;margin-top:8px">' + post.excerpt + "</p>" +
+          '<button class="btn btn-outline btn-sm mt-2" data-read="' + post.slug + '">Read article</button></div></article>';
+      }).join("");
+      grid.querySelectorAll("[data-read]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          window.NRT.toast("Full articles publish at B2C go-live (October 2026). Subscribers get them first!");
+        });
+      });
+    }
+
+    filterBar.querySelectorAll(".chip").forEach(function (c) {
+      c.addEventListener("click", function () {
+        active = c.getAttribute("data-tag");
+        filterBar.querySelectorAll(".chip").forEach(function (x) { x.classList.remove("on"); });
+        c.classList.add("on");
+        render();
+      });
+    });
+    render();
+  });
+})();
+</script>
+</body>
+</html>

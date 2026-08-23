@@ -1,0 +1,139 @@
+/* ============================================================
+   NURTURER - Motion layer 2: pet-themed keyframe moments,
+   breathing products, micro-interaction easing audit.
+   ============================================================ */
+
+/* ---------- keyframes ---------- */
+@keyframes kenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.1) translate(-1.6%, 1.4%); }
+}
+@keyframes floaty {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-7px); }
+}
+@keyframes wagTail {
+  from { transform: rotate(-16deg); }
+  to   { transform: rotate(14deg); }
+}
+@keyframes catBlink {
+  0%, 91%, 100% { transform: scaleY(0); }
+  94%, 97%      { transform: scaleY(1); }
+}
+@keyframes rippleRing {
+  from { transform: scale(.35); opacity: .75; }
+  to   { transform: scale(1.15); opacity: 0; }
+}
+@keyframes sparkSweep {
+  0%       { transform: translateX(-160%) skewX(-18deg); }
+  55%,100% { transform: translateX(340%) skewX(-18deg); }
+}
+@keyframes pawStep {
+  0%   { opacity: 0; transform: scale(.3) rotate(var(--rot, 0deg)); }
+  25%  { opacity: 1; transform: scale(1.08) rotate(var(--rot, 0deg)); }
+  70%  { opacity: 1; }
+  100% { opacity: .28; transform: scale(1) rotate(var(--rot, 0deg)); }
+}
+@keyframes nudgeArrow { to { transform: translateX(5px); } }
+
+/* ---------- breathing / floating product art ---------- */
+.thumb svg, .pdp-main-img svg, .preview-stage svg {
+  transition: transform .45s var(--ease-out-soft);
+}
+.product-card:hover .thumb svg,
+.pdp-gallery:hover .pdp-main-img svg { transform: translateY(-8px) scale(1.05) rotate(-1.5deg); }
+.breathe svg { animation: floaty 4.5s ease-in-out infinite alternate; }
+
+/* ---------- wagging-tail dog (reviews moment) ---------- */
+.wag-dog { width: 60px; height: 60px; display: inline-block; vertical-align: -10px; margin-left: 12px; }
+.wag-dog .tail {
+  transform-origin: 14px 64px;
+  animation: wagTail .42s ease-in-out infinite alternate;
+}
+
+/* ---------- blinking cat ---------- */
+.blink-cat { width: 52px; height: 52px; display: inline-block; vertical-align: -12px; margin-right: 12px; }
+.blink-cat .lids {
+  transform-origin: center top;
+  transform-box: fill-box;
+  animation: catBlink 5.2s ease-in-out infinite;
+}
+
+/* ---------- water ripple rings (copper explainer) ---------- */
+.ripple-ring {
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: rippleRing 2.6s ease-out infinite;
+}
+.ripple-ring.r2 { animation-delay: .85s; }
+.ripple-ring.r3 { animation-delay: 1.7s; }
+
+/* ---------- paw print sequence walking toward a CTA ---------- */
+.paw-seq { display: inline-flex; gap: 14px; align-items: center; margin-bottom: 14px; }
+.paw-seq span {
+  width: 22px; height: 22px; color: #f3ddc2;
+  opacity: 0;
+  animation: pawStep 2.8s var(--ease-out-soft) infinite;
+}
+.paw-seq span:nth-child(1) { --rot: -18deg; animation-delay: 0s; }
+.paw-seq span:nth-child(2) { --rot: 10deg;  animation-delay: .35s; }
+.paw-seq span:nth-child(3) { --rot: -12deg; animation-delay: .7s; }
+.paw-seq span:nth-child(4) { --rot: 14deg;  animation-delay: 1.05s; }
+
+/* ---------- sparkle shine sweep on copper callouts ---------- */
+.copper-flag { position: relative; overflow: hidden; }
+.copper-flag .spark {
+  position: absolute; top: 0; bottom: 0; width: 34%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.65), transparent);
+  animation: sparkSweep 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ---------- CTA arrow nudge on hover ---------- */
+.btn svg, .branch-card .go svg { transition: transform .25s var(--ease-out-soft); }
+.btn:hover svg, .branch-card:hover .go svg { transform: translateX(5px); }
+
+/* ============================================================
+   MICRO-INTERACTION EASING AUDIT
+   every state swap below now eases instead of snapping
+   ============================================================ */
+.chip, .size-opt, .font-opt, .motif-opt, .step-chip, .social-chip,
+.mat-toggle button, .account-nav button, .qty-box button,
+.pay-options label, .swatch, .icon-btn, .hero-sound {
+  transition:
+    background-color .2s var(--ease-out-soft),
+    border-color .2s var(--ease-out-soft),
+    color .2s var(--ease-out-soft),
+    outline-color .2s var(--ease-out-soft),
+    box-shadow .2s var(--ease-out-soft),
+    transform .2s var(--ease-out-soft);
+}
+.chip:hover, .mat-toggle button:not(.on):hover, .size-opt:not(.on):hover,
+.font-opt:not(.on):hover, .motif-opt:not(.on):hover, .step-chip:hover {
+  transform: translateY(-2px);
+  border-color: var(--copper-light);
+  box-shadow: 0 6px 14px rgba(90,58,25,.12);
+}
+.pay-options label { transition: background-color .2s var(--ease-out-soft), border-color .2s var(--ease-out-soft); }
+.account-nav button:hover { background: var(--copper-pale); }
+.qty-box button:hover { background: var(--copper-pale); }
+.swatch:hover { transform: scale(1.12); }
+.link-danger, .site-footer a, .main-nav a { transition: color .18s ease; }
+.cart-count { transition: scale .25s var(--ease-spring); }
+.icon-btn:active .cart-count { scale: 1.25; }
+/* PERF: no permanent will-change here - promoting dozens of cards to their own
+   compositor layers bloats GPU memory and slows scrolling. Hover transforms
+   get promoted automatically for the duration of the transition. */
+.summary-card, .form-card, .compare-shell { transition: box-shadow .3s var(--ease-out-soft); }
+.summary-card:hover, .form-card:hover { box-shadow: var(--shadow-lift); }
+
+/* toast slides with spring already; keep */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .rv { opacity: 1 !important; transform: none !important; }
+  .page-fade { display: none; }
+}

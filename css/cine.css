@@ -1,0 +1,104 @@
+/* ============================================================
+   NURTURER - Cinematic hero loop (pure-code "video", 15s)
+   Shot list per brand brief:
+   A 0-3s   macro copper interior, water ripple, light glint
+   B 3-6s   slow pull-back reveal of elevated bowl on wood floor
+   C 6-10s  golden puppy trots in, settles, eats (tail wag)
+   D 10-14s cream cat approaches counter bowl, sniffs, eats
+   E 14-15s calm wide hold, soft light fade, clean frame for CTA
+   ============================================================ */
+
+.cine { position: absolute; inset: 0; z-index: 1; }
+.cine .scene { position: absolute; inset: 0; opacity: 0; }
+.cine svg { width: 100%; height: 100%; display: block; }
+
+.cine .scene-a { animation: cineA var(--cine-dur, 15s) linear infinite; }
+.cine .scene-b { animation: cineB var(--cine-dur, 15s) linear infinite; }
+.cine .scene-c { animation: cineC var(--cine-dur, 15s) linear infinite; }
+.cine .scene-d { animation: cineD var(--cine-dur, 15s) linear infinite; }
+.cine .scene-e { animation: cineE var(--cine-dur, 15s) linear infinite; }
+
+@keyframes cineA { 0%{opacity:0} 4%{opacity:1} 19%{opacity:1} 24%{opacity:0} 100%{opacity:0} }
+@keyframes cineB { 0%,19%{opacity:0} 25%{opacity:1} 38%{opacity:1} 44%{opacity:0} 100%{opacity:0} }
+@keyframes cineC { 0%,40%{opacity:0} 46%{opacity:1} 62%{opacity:1} 68%{opacity:0} 100%{opacity:0} }
+@keyframes cineD { 0%,64%{opacity:0} 70%{opacity:1} 86%{opacity:1} 92%{opacity:0} 100%{opacity:0} }
+@keyframes cineE { 0%,88%{opacity:0} 93%{opacity:1} 99%{opacity:1} 100%{opacity:0} }
+
+/* camera moves (one 15s cycle each, active only inside their window) */
+.scene-a .cam { animation: camA var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes camA { 0%{transform:scale(1.02)} 20%{transform:scale(1.13)} 100%{transform:scale(1.13)} }
+
+.scene-b .cam { animation: camB var(--cine-dur, 15s) cubic-bezier(.25,.6,.3,1) infinite; }
+@keyframes camB { 0%,20%{transform:scale(1.42) translateY(115px)} 42%,100%{transform:scale(1) translateY(0)} }
+
+.scene-c .cam { animation: camC var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes camC { 0%,40%{transform:translateX(26px) scale(1.04)} 68%,100%{transform:translateX(-14px) scale(1.04)} }
+
+.scene-d .cam { animation: camD var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes camD { 0%,64%{transform:scale(1.07)} 92%,100%{transform:scale(1.01)} }
+
+.scene-e .cam { animation: camE var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes camE { 0%,88%{transform:scale(1)} 100%{transform:scale(1.03)} }
+
+/* macro glint sweep across copper */
+.glint-bar { animation: glintSweep var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes glintSweep {
+  0%,4%   { transform: translateX(-420px) rotate(-14deg); opacity: 0; }
+  8%      { opacity: .85; }
+  16%     { opacity: .85; }
+  20%,100%{ transform: translateX(560px) rotate(-14deg); opacity: 0; }
+}
+
+/* puppy: trot in, settle, nibble */
+.puppy { animation: puppyWalk var(--cine-dur, 15s) cubic-bezier(.3,.7,.3,1) infinite; }
+@keyframes puppyWalk {
+  0%, 41%   { transform: translateX(-380px); }
+  53%, 100% { transform: translateX(0); }
+}
+.nibbler {
+  transform-box: fill-box;
+  transform-origin: 50% 92%;
+  animation: nibble 1.05s ease-in-out infinite alternate;
+}
+@keyframes nibble { from { transform: rotate(0deg); } to { transform: rotate(7deg); } }
+.wagger {
+  transform-box: fill-box;
+  transform-origin: 0% 60%;
+  animation: wagger .48s ease-in-out infinite alternate;
+}
+@keyframes wagger { from { transform: rotate(-14deg); } to { transform: rotate(16deg); } }
+
+/* cat: approach, sniff once, eat calmly */
+.catwalk { animation: catWalk var(--cine-dur, 15s) cubic-bezier(.3,.7,.3,1) infinite; }
+@keyframes catWalk {
+  0%, 67%   { transform: translateX(-320px); }
+  79%, 100% { transform: translateX(0); }
+}
+.cat-head { animation: catHead var(--cine-dur, 15s) ease-in-out infinite; transform-box: fill-box; transform-origin: 20% 80%; }
+@keyframes catHead {
+  0%, 70%  { transform: rotate(0deg); }
+  73%      { transform: rotate(17deg); }   /* curious sniff */
+  76%      { transform: rotate(3deg); }
+  80%      { transform: rotate(10deg); }   /* begins eating */
+  85%      { transform: rotate(4deg); }
+  90%,100% { transform: rotate(8deg); }
+}
+.cat-tail { transform-box: fill-box; transform-origin: 0% 50%; animation: catTail 2.2s ease-in-out infinite alternate; }
+@keyframes catTail { from { transform: rotate(-8deg); } to { transform: rotate(10deg); } }
+
+/* closing light fade */
+.dimmer { animation: dimmerFade var(--cine-dur, 15s) ease-in-out infinite; }
+@keyframes dimmerFade { 0%,88%{opacity:0} 100%{opacity:.32} }
+
+/* real video overrides the storyboard when present
+   (layer order inside .hero-media: poster 0 < cine 1 < video 2 < scrim 3) */
+.hero-media.video-live .cine,
+.hero-media.video-live .hero-poster { opacity: 0; transition: opacity .9s ease; }
+.hero-media.video-live video { z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cine .scene, .cine .cam, .glint-bar, .puppy, .catwalk,
+  .nibbler, .wagger, .cat-head, .cat-tail, .dimmer { animation: none !important; }
+  .cine .scene { opacity: 0 !important; }
+  .cine .scene-b { opacity: 1 !important; }
+}

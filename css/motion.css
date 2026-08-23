@@ -1,0 +1,137 @@
+/* ============================================================
+   NURTURER - Motion layer 1: transitions, reveals, cursor,
+   hero video system.
+   ============================================================ */
+
+:root {
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* cross-document view transitions (progressive enhancement) */
+@view-transition { navigation: auto; }
+
+/* page fade fallback for browsers without view transitions */
+.page-fade {
+  position: fixed; inset: 0; z-index: 400;
+  background: var(--cream); pointer-events: none;
+  opacity: 0; transition: opacity .28s ease-in-out;
+}
+.page-fade.boot { opacity: 1; }
+.page-fade.leaving { opacity: 1; pointer-events: all; }
+
+/* ---------- scroll reveal engine ---------- */
+.rv { opacity: 0; transform: translateY(30px) scale(.985); will-change: opacity, transform; }
+.rv.rv-left { transform: translateX(-36px); }
+.rv.rv-right { transform: translateX(36px); }
+.rv.rv-pop { transform: translateY(18px) scale(.92); }
+.rv.in {
+  opacity: 1; transform: none;
+  transition: opacity .8s var(--ease-out-soft), transform .8s var(--ease-out-soft);
+  /* drop the compositor layer once revealed - permanent will-change on many
+     elements bloats GPU memory and slows scrolling */
+  will-change: auto;
+}
+
+/* ---------- custom paw cursor (fine pointers only) ---------- */
+body.paw-on, body.paw-on a, body.paw-on button, body.paw-on label,
+body.paw-on .chip { cursor: none; }
+body.paw-on input, body.paw-on textarea, body.paw-on select { cursor: auto; }
+
+.paw-cursor {
+  position: fixed; left: 0; top: 0; z-index: 9999;
+  width: 34px; height: 34px; margin: -17px 0 0 -17px;
+  pointer-events: none; display: none;
+  color: #8a5220;
+  filter: drop-shadow(0 2px 6px rgba(90,58,25,.35));
+  will-change: transform;
+}
+.paw-cursor.on { display: block; }
+.paw-cursor svg { width: 100%; height: 100%; transition: scale .25s var(--ease-spring), rotate .25s var(--ease-spring); }
+.paw-cursor .paw-claws { opacity: 0; transition: opacity .18s ease; }
+.paw-cursor.is-cat .paw-claws { opacity: 1; }
+.paw-cursor.is-link svg { scale: 1.5; rotate: -16deg; }
+.paw-cursor.is-down svg { scale: .75; }
+
+.paw-dot {
+  position: fixed; left: 0; top: 0; z-index: 9998;
+  width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px;
+  border-radius: 50%; background: var(--copper);
+  box-shadow: 0 0 0 2px rgba(255,255,255,.55);
+  pointer-events: none; display: none; will-change: transform;
+}
+
+.paw-trail-print {
+  position: fixed; z-index: 9997; width: 20px; height: 20px;
+  margin: -10px 0 0 -10px; pointer-events: none;
+  color: rgba(138,82,32,.5);
+  animation: trailFade .8s ease-out forwards;
+}
+@keyframes trailFade {
+  from { opacity: .85; transform: scale(.6) rotate(var(--rot, 0deg)); }
+  to   { opacity: 0;   transform: scale(1.25) rotate(var(--rot, 0deg)) translateY(6px); }
+}
+
+/* ---------- hero video system ---------- */
+.hero.hero-video { position: relative; overflow: hidden; isolation: isolate; }
+.hero-media { position: absolute; inset: 0; z-index: -1; }
+.hero-media img.hero-poster,
+.hero-media video {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-media img.hero-poster { animation: kenBurns 22s var(--ease-out-soft) infinite alternate; }
+.hero-media video { opacity: 0; transition: opacity .9s ease; }
+.hero-media.video-live video { opacity: 1; }
+.hero-media.video-live img.hero-poster { animation-play-state: paused; }
+
+/* PERF: once the real video is live, pull the five animated full-screen SVG
+   storyboard scenes out of rendering entirely (opacity:0 alone still burns CPU/GPU). */
+.hero-media.video-live .cine { display: none; }
+
+/* PERF: pause every hero animation while the hero is scrolled out of view
+   (class toggled by motion.js IntersectionObserver). */
+.hero.hero-paused .cine *,
+.hero.hero-paused img.hero-poster { animation-play-state: paused !important; }
+
+/* PERF mobile: skip the animated storyboard completely - static poster only */
+@media (max-width: 760px) {
+  .cine { display: none !important; }
+}
+/* NOTE: .hero-media creates a stacking context (z-index:-1), so the scrim
+   must carry a POSITIVE z-index to paint above the poster/video/cine
+   layers inside it — otherwise white hero text sits on the light artwork
+   and becomes unreadable. */
+.hero-scrim {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(42,33,27,.82) 0%, rgba(42,33,27,.62) 34%, rgba(42,33,27,.28) 58%, rgba(42,33,27,.02) 78%),
+    linear-gradient(180deg, rgba(42,33,27,.38), transparent 32%, transparent 66%, rgba(42,33,27,.45));
+}
+.hero-video .hero-inner { display: block; padding: 120px 0 140px; position: relative; z-index: 4; }
+.hero-video .hero-inner > div { max-width: 620px; }
+.hero-video h1, .hero-video .lead { text-shadow: 0 2px 24px rgba(42,33,27,.55), 0 1px 3px rgba(42,33,27,.4); }
+.hero-video .hero-proof { text-shadow: 0 1px 10px rgba(42,33,27,.6); }
+.hero-video .hero-inner > div:first-child,
+.hero-video h1, .hero-video .lead, .hero-video .hero-proof { color: #fff; }
+.hero-video h1 em { color: #f3c98e; }
+.hero-video .lead { color: #efe4d6; text-shadow: 0 1px 14px rgba(42,33,27,.4); }
+.hero-video .copper-flag { box-shadow: 0 4px 18px rgba(42,33,27,.3); }
+.hero-sound {
+  position: absolute; right: 26px; bottom: 24px; z-index: 5;
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,.55);
+  background: rgba(42,33,27,.45); color: #fff;
+  backdrop-filter: blur(6px);
+  display: none; place-items: center;
+  transition: background .2s ease, scale .2s var(--ease-spring);
+}
+.hero-sound:hover { background: rgba(42,33,27,.7); scale: 1.08; }
+.hero-sound svg { width: 20px; height: 20px; }
+.hero-media.video-live ~ * .hero-sound, .hero.hero-video.has-video .hero-sound { display: grid; }
+
+@media (max-width: 760px) {
+  /* mobile: keep poster + Ken Burns for performance */
+  .hero-media video { display: none; }
+  .hero-scrim { background: linear-gradient(180deg, rgba(42,33,27,.55), rgba(42,33,27,.28) 40%, rgba(42,33,27,.62)); }
+}

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | NURTURER</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="section tight" style="padding-top:40px">
+  <div class="wrap">
+    <span class="kicker">Almost There</span>
+    <h1 style="font-size:clamp(30px,4vw,46px);margin:10px 0 26px">Your cart</h1>
+
+    <div id="cartEmpty" class="empty-state card" hidden>
+      <svg viewBox="0 0 240 220"><path d="M36 92 Q40 158 120 160 Q200 158 204 92 Z" fill="#e3d5c2"/><ellipse cx="120" cy="92" rx="84" ry="24" fill="#d4c2a8"/><text x="120" y="140" text-anchor="middle" font-family="Georgia" font-size="16" fill="#8a7a6c">Empty for now</text></svg>
+      <h3>Nothing here yet</h3>
+      <p class="text-muted mb-2">Your future fur baby's favorite bowl is a click away.</p>
+      <a class="btn btn-primary" href="shop.html">Shop all bowls</a>
+    </div>
+
+    <div class="cart-layout" id="cartLayout">
+      <div>
+        <div class="card" style="padding:10px 26px" id="cartList"></div>
+        <p class="tag-note mt-1">Vouchers: try <b>NURTURER10</b> (10% off) or <b>PAWSFIRST</b> (&#8369;150 off first order over &#8369;1,500). Affiliate codes apply at checkout.</p>
+      </div>
+      <aside>
+        <div class="summary-card">
+          <div class="ship-progress">
+            <span id="shipMsg"></span>
+            <div class="bar"><i id="shipBar" style="width:0%"></i></div>
+          </div>
+          <h3 style="font-size:17px;margin-bottom:12px">Order summary</h3>
+          <div class="summary-line"><span>Subtotal</span><b id="sumSub"></b></div>
+          <div class="summary-line"><span>Discount <span id="voucherNote" class="tag-note"></span></span><b id="sumDisc" style="color:var(--green)">&minus;&#8369;0</b></div>
+          <div class="summary-line"><span>Shipping</span><b id="sumShip"></b></div>
+          <div class="summary-total"><span>Total</span><span id="sumTotal"></span></div>
+          <div class="voucher-row">
+            <input type="text" id="voucherInput" placeholder="Discount / affiliate code">
+            <button class="btn btn-dark btn-sm" id="applyVoucher">Apply</button>
+          </div>
+          <a class="btn btn-primary mt-1" href="checkout.html" style="width:100%">Proceed to checkout</a>
+          <p class="form-note center">Earn <b id="pointsPreview">-</b> Copper Points with this order.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

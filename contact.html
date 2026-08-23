@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact &amp; Messenger | NURTURER</title>
+<meta name="description" content="Reach the NURTURER team - chat, email, phone, or visit our Quezon City showroom. B2B and customer support lines.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h1>Talk to a human (or a very helpful bot).</h1>
+    <p class="lead">The chat bubble in the bottom-right corner answers instantly and escalates to the team 9am-6pm PHT. Prefer email or a visit? Details below.</p>
+  </div>
+</section>
+
+<section class="section tight">
+  <div class="wrap grid grid-3 mb-3">
+    <div class="card quote-card"><h3 style="font-size:19px">Customer Care</h3><ul class="spec-list mt-1"><li><b>Email:</b> hello@nurturer.ph</li><li><b>Chat:</b> bottom-right, replies in minutes</li><li><b>SMS / Viber:</b> +63 917 CARE-BWL</li></ul></div>
+    <div class="card quote-card"><h3 style="font-size:19px">Wholesale Team</h3><ul class="spec-list mt-1"><li><b>Email:</b> wholesale@nurturer.ph</li><li><b>B2B line:</b> +63 917 NURTURER</li><li><b>Inquiries:</b> <a href="b2b.html#inquiry" style="text-decoration:underline">B2B portal form</a></li></ul></div>
+    <div class="card quote-card"><h3 style="font-size:19px">Showroom</h3><ul class="spec-list mt-1"><li><b>Where:</b> Quezon City, Metro Manila</li><li><b>Hours:</b> Mon-Sat, 10am-6pm</li><li><b>Note:</b> by appointment - bring your pet!</li></ul></div>
+  </div>
+
+  <div class="wrap grid grid-2" style="align-items:start">
+    <form class="form-card" id="contactForm">
+      <h2 style="font-size:24px" class="mb-2">Send us a message</h2>
+      <div class="form-grid">
+        <div class="field"><label for="cfName">Your name *</label><input id="cfName" required></div>
+        <div class="field"><label for="cfEmail">Email *</label><input id="cfEmail" type="email" required></div>
+      </div>
+      <div class="field"><label for="cfTopic">Topic</label>
+        <select id="cfTopic">
+          <option>Order support</option>
+          <option>Custom design question</option>
+          <option>Wholesale / B2B</option>
+          <option>Pet Foundation</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field"><label for="cfMsg">Message *</label><textarea id="cfMsg" rows="5" required placeholder="How can we help?"></textarea></div>
+      <button class="btn btn-primary" style="width:100%">Send message</button>
+    </form>
+    <div class="card quote-card" style="background:linear-gradient(150deg,var(--copper-pale),#fdf3e3)">
+      <h3 style="font-size:20px">Prefer instant answers?</h3>
+      <p>The NURTURER assistant handles most questions on the spot - shipping ETAs, copper care, sizing help, wholesale basics.</p>
+      <button class="btn btn-primary mt-1" id="openChatBtn">Open live chat</button>
+      <hr style="border:none;border-top:1px solid var(--line);margin:22px 0">
+      <h4 style="font-family:var(--font-display);font-size:17px;margin-bottom:8px">Response promises</h4>
+      <ul class="spec-list">
+        <li><b>Chat:</b> instant (bot) or under 15 minutes (human, business hours)</li>
+        <li><b>Email:</b> within one business day</li>
+        <li><b>Custom artwork proofs:</b> within 24 hours of submission</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    this.innerHTML = '<div style="text-align:center;padding:30px 10px">' +
+      '<svg viewBox="0 0 24 24" width="60" style="color:var(--green);margin:0 auto 12px;display:block"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      "<h3>Message sent!</h3><p class='text-muted'>We'll reply within one business day. Salamat!</p></div>";
+  });
+  document.getElementById("openChatBtn").addEventListener("click", function () {
+    document.querySelector(".chat-launcher").click();
+  });
+});
+</script>
+</body>
+</html>

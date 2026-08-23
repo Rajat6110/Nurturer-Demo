@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | NURTURER</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="section tight" style="padding-top:40px">
+  <div class="wrap">
+    <span class="kicker">Secure Checkout</span>
+    <h1 style="font-size:clamp(30px,4vw,46px);margin:10px 0 26px">Checkout</h1>
+
+    <div id="checkoutEmpty" class="empty-state card" hidden>
+      <h3>Your cart is empty</h3>
+      <a class="btn btn-primary mt-1" href="shop.html">Shop bowls first</a>
+    </div>
+
+    <div class="cart-layout" id="checkoutLayout">
+      <form class="form-card" id="checkoutForm">
+        <h3 style="font-size:20px" class="mb-2">Delivery details</h3>
+        <div class="form-grid">
+          <div class="field"><label for="coName">Full name</label><input id="coName" required placeholder="Juan Dela Cruz"></div>
+          <div class="field"><label for="coEmail">Email</label><input id="coEmail" type="email" required placeholder="you@email.com"></div>
+          <div class="field"><label for="coPhone">Mobile</label><input id="coPhone" required placeholder="+63 9XX XXX XXXX"></div>
+          <div class="field"><label for="coRegion">Country / Region</label>
+            <select id="coRegion">
+              <option value="PH" selected>Philippines</option>
+              <option value="SG">Singapore</option>
+              <option value="MY">Malaysia</option>
+              <option value="TH">Thailand</option>
+              <option value="OTHER-SEA">Other SEA (waitlist)</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="coAddr">Complete address</label><input id="coAddr" required placeholder="House no., street, barangay"></div>
+        <div class="form-grid">
+          <div class="field"><label for="coCity">City / Municipality</label><input id="coCity" required placeholder="Quezon City"></div>
+          <div class="field"><label for="coZip">Postal code</label><input id="coZip" required placeholder="1100"></div>
+        </div>
+
+        <h3 style="font-size:20px" class="mt-2 mb-2">Payment method</h3>
+        <div class="pay-options">
+          <label><input type="radio" name="pay" value="GCash" checked> GCash &mdash; pay in two taps</label>
+          <label><input type="radio" name="pay" value="Maya"> Maya</label>
+          <label><input type="radio" name="pay" value="Card"> Credit / Debit Card (Visa, Mastercard)</label>
+          <label><input type="radio" name="pay" value="COD"> Cash on Delivery (PH only)</label>
+          <label><input type="radio" name="pay" value="Bank"> Bank Transfer (BPI, BDO)</label>
+        </div>
+
+        <div class="field mt-2" style="background:var(--green-pale);border:1px solid #cfe3d6;border-radius:12px;padding:14px 16px">
+          <label style="display:flex;gap:12px;align-items:flex-start;margin:0;font-weight:700;font-size:14px;color:var(--green)">
+            <input type="checkbox" id="donateRoundup" style="margin-top:4px">
+            Round up my total and donate the difference to the NURTURER Pet Foundation
+          </label>
+        </div>
+
+        <button class="btn btn-primary mt-2" type="submit" style="width:100%" id="placeOrderBtn">Place order</button>
+        <p class="form-note center mt-1">Demo checkout - no real payment is processed. Orders are saved to your account.</p>
+      </form>
+
+      <aside>
+        <div class="summary-card">
+          <h3 style="font-size:17px;margin-bottom:12px">Order summary</h3>
+          <div id="miniItems"></div>
+          <hr style="border:none;border-top:1px solid var(--line);margin:14px 0">
+          <div class="summary-line"><span>Subtotal</span><b id="sumSub"></b></div>
+          <div class="summary-line" id="discRow"><span>Discount</span><b id="sumDisc" style="color:var(--green)"></b></div>
+          <div class="summary-line"><span>Shipping</span><b id="sumShip"></b></div>
+          <div class="summary-line"><span>Foundation donation</span><b id="sumDonate">&#8369;0</b></div>
+          <div class="summary-total"><span>Total</span><span id="sumTotal"></span></div>
+          <p class="form-note">You'll earn <b id="pointsPreview"></b> Copper Points on this order.</p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- success state -->
+    <div id="orderSuccess" class="empty-state card" hidden>
+      <svg viewBox="0 0 24 24" width="70" style="color:var(--green);margin:0 auto 14px"><path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h3>Salamat! Your order is confirmed.</h3>
+      <p class="text-muted" id="successMeta"></p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px">
+        <a class="btn btn-dark" href="account.html?tab=orders">Track my order</a>
+        <a class="btn btn-outline" href="shop.html">Keep shopping</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Account | NURTURER</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<section class="section tight" style="padding-top:40px">
+  <div class="wrap">
+    <!-- logged OUT -->
+    <div id="authView" class="grid grid-2" hidden>
+      <div class="form-card">
+        <span class="kicker">Welcome Back</span>
+        <h1 style="font-size:30px;margin:8px 0 18px">Log in</h1>
+        <form id="loginForm">
+          <div class="field"><label for="liEmail">Email</label><input id="liEmail" type="email" required placeholder="you@email.com"></div>
+          <div class="field"><label for="liPass">Password</label><input id="liPass" type="password" required placeholder="Demo: any password works"></div>
+          <button class="btn btn-primary mt-1" style="width:100%">Log in</button>
+          <p class="form-note">Demo build - accounts are stored locally in your browser.</p>
+        </form>
+      </div>
+      <div class="form-card" style="background:linear-gradient(150deg,var(--copper-pale),#fdf3e3)">
+        <span class="kicker">New Here?</span>
+        <h1 style="font-size:30px;margin:8px 0 14px">Create an account</h1>
+        <ul class="spec-list mb-2">
+          <li><b>Track orders</b> and delivery status</li>
+          <li><b>Approve custom artwork</b> before engraving - nothing is etched without you</li>
+          <li><b>Earn Copper Points</b> on every order and referral</li>
+          <li><b>B2B buyers:</b> manage wholesale quotes and bulk designs</li>
+        </ul>
+        <form id="registerForm">
+          <div class="field"><label for="rgName">Your name</label><input id="rgName" required placeholder="Juan Dela Cruz"></div>
+          <div class="field"><label for="rgEmail">Email</label><input id="rgEmail" type="email" required placeholder="you@email.com"></div>
+          <div class="field"><label for="rgPass">Password</label><input id="rgPass" type="password" required minlength="4" placeholder="At least 4 characters"></div>
+          <button class="btn btn-dark mt-1" style="width:100%">Create my account</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- logged IN -->
+    <div id="accountView" hidden>
+      <div class="split" style="gap:16px;align-items:end;margin-bottom:26px">
+        <div>
+          <span class="kicker">My Account</span>
+          <h1 style="font-size:clamp(28px,3.6vw,40px);margin-top:8px">Kumusta, <span id="helloName">friend</span>!</h1>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="logoutBtn">Log out</button>
+      </div>
+
+      <div class="account-layout">
+        <nav class="account-nav" id="acctNav">
+          <button data-tab="orders" class="on">Order History</button>
+          <button data-tab="designs">Design Approvals</button>
+          <button data-tab="rewards">Rewards &amp; Points</button>
+          <button data-tab="settings">Settings</button>
+        </nav>
+        <div id="tabHost"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/account.js"></script>
+</body>
+</html>

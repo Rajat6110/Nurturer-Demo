@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NURTURER - Copper-Lined Elevated Pet Bowls for Dogs &amp; Cats</title>
+<meta name="description" content="Naturally hygienic copper-lined, elevated pet bowls. Better digestion for dogs and cats, less mess for you. Free PH shipping over â‚±1,500. Custom engraving available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+<link rel="stylesheet" href="css/pets.css">
+<link rel="stylesheet" href="css/cine.css">
+</head>
+<body>
+<div id="siteHeader"></div>
+
+<!-- ============ SCROLL 1 - DISCOVER: HERO VIDEO (copper claim above fold) ============ -->
+<section class="hero hero-video">
+  <div class="hero-media" aria-hidden="true">
+    <!-- Poster doubles as slow-connection / mobile fallback with Ken-Burns zoom.
+         Bitmap JPG (not SVG): transform-scaling a bitmap is pure GPU compositing,
+         while scaling an SVG forces re-rasterization every frame. -->
+    <img class="hero-poster" src="assets/img/hero-poster.jpg" alt="">
+    <!-- Drop your exported file at assets/video/hero.mp4 (+ optional .webm).
+         JS lazy-attaches these sources after page load - no bytes until idle. -->
+    <video id="heroVideo" muted loop playsinline preload="none" poster="assets/img/hero-poster.jpg" tabindex="-1">
+      <source data-src="assets/video/hero.webm" type="video/webm">
+      <source data-src="assets/video/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="copper-flag"><svg width="14" height="14" viewBox="0 0 24 24" fill="#8a5220"><path d="M12 2l2 7 7 2-7 2-2 7-2-7-7-2 7-2z"/></svg> Copper-Lined &middot; Naturally Anti-Bacterial<span class="spark"></span></span>
+      <h1>Mealtime, <em>elevated.</em></h1>
+      <p class="lead">NURTURER bowls pair a naturally hygienic <strong>copper-lined interior</strong> with an ergonomic elevated design &mdash; so food and water stay fresher longer, and every meal is easier on your dog or cat's posture and digestion.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="shop.html?species=dog" data-cursor="dog">Shop Dog Bowls</a>
+        <a class="btn btn-dark" href="shop.html?species=cat" data-cursor="cat">Shop Cat Bowls</a>
+        <a class="btn btn-white" href="learn.html">Why copper?</a>
+      </div>
+      <div class="hero-proof">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.8/5 from 1,700+ fur parents</span>
+        <span>&bull;</span>
+        <span>Vet-endorsed materials</span>
+      </div>
+    </div>
+  </div>
+  <button class="hero-sound" id="heroSoundBtn" title="Unmute" aria-label="Toggle ambient sound">
+    <svg viewBox="0 0 24 24"><path d="M11 5L6 9H2v6h4l5 4zM22 9l-6 6M16 9l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</section>
+
+<!-- ============ SCROLL 1.5 - AUDIENCE BRANCH (B2C vs B2B self-selection) ============ -->
+<section class="section tight" style="padding-top:44px">
+  <div class="wrap">
+    <div class="branch-grid">
+      <button class="branch-card b2c" data-audience="b2c">
+        <svg class="deco" viewBox="0 0 192 192"><path d="M60 30 Q95 8 130 30 Q150 42 148 74 Q146 100 118 106 L72 106 Q44 100 42 74 Q40 42 60 30 Z" fill="#fff"/></svg>
+        <span class="tag">For Fur Parents &mdash; B2C</span>
+        <h3>I'm shopping for my pet</h3>
+        <p>Discover, learn why copper wins, customize a bowl with their name, and check out in minutes.</p>
+        <span class="go">Start shopping <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <button class="branch-card b2b" data-audience="b2b">
+        <svg class="deco" viewBox="0 0 24 24"><path d="M3 21V7l7-4v18M10 21V11l11-3v13M6 9h1M6 13h1M6 17h1" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="tag">For Businesses &mdash; B2B</span>
+        <h3>I buy for my business</h3>
+        <p>Pet stores, vet clinics, groomers, hotels &amp; distributors: tiered wholesale pricing from 24 units, co-branding available.</p>
+        <span class="go">See the business opportunity <svg width="18" height="18" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 2 - DISCOVER/EDUCATE: WHAT COPPER LINING DOES ============ -->
+<section class="section">
+  <div class="wrap split">
+    <div class="panel-visual panel-copper">
+      <svg viewBox="0 0 240 220" style="max-width:280px">
+        <ellipse cx="120" cy="200" rx="80" ry="12" fill="rgba(0,0,0,.15)"/>
+        <path d="M40 92 Q46 160 120 163 Q194 160 200 92 Z" fill="#f3ddc2" stroke="#caa06a" stroke-width="2"/>
+        <ellipse cx="120" cy="92" rx="80" ry="24" fill="#ffdca8" stroke="#caa06a" stroke-width="2"/>
+        <ellipse cx="120" cy="94" rx="64" ry="16" fill="#ffeecd"/>
+        <!-- water-freshness ripple moment -->
+        <g fill="none" stroke="#d99a56" stroke-width="2">
+          <ellipse class="ripple-ring r1" cx="120" cy="94" rx="26" ry="7"/>
+          <ellipse class="ripple-ring r2" cx="120" cy="94" rx="26" ry="7"/>
+          <ellipse class="ripple-ring r3" cx="120" cy="94" rx="26" ry="7"/>
+        </g>
+        <g transform="translate(78,78)">
+          <circle cx="12" cy="12" r="9" fill="#b3402f" opacity=".85"/>
+          <circle cx="38" cy="8" r="7" fill="#b3402f" opacity=".7"/>
+          <circle cx="62" cy="14" r="8" fill="#b3402f" opacity=".8"/>
+        </g>
+        <text x="120" y="140" text-anchor="middle" font-family="Georgia, serif" font-size="15" fill="#6f3f16">99% of bacteria eliminated*</text>
+      </svg>
+    </div>
+    <div>
+      <span class="kicker">The Copper Difference</span>
+      <h2 style="font-size:clamp(28px,3.6vw,42px);margin:10px 0 14px">What does "copper-lined" actually do?</h2>
+      <p style="color:var(--ink-soft)">In plain language: copper is naturally hostile to bacteria. When the inside of your pet's bowl is lined with real copper, germs that thrive in plastic scratches and steel scours simply <strong>can't multiply the same way</strong>. Slime films slow down. Water stays fresher between refills. Meal residue carries less risk.</p>
+      <p style="color:var(--ink-soft);margin-top:12px">It's the same reason hospitals use copper surfaces &mdash; now built into something your dog licks every single day. Pair that with an elevated stand for better mealtime posture, and you get cleaner feeding with less scrubbing for you.</p>
+      <div class="stat-row">
+        <div class="stat"><b>99%</b><span>bacterial reduction* on contact surfaces</span></div>
+        <div class="stat"><b>2x longer</b><span>water stays fresh vs. plastic</span></div>
+        <div class="stat"><b>60 sec</b><span>a week to keep it spotless</span></div>
+      </div>
+      <p class="tag-note mt-1">*Demonstrated antimicrobial efficacy of copper contact surfaces under laboratory testing; see our Materials &amp; Safety documentation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 3 - EDUCATE: INTERACTIVE COMPARISON MODULE ============ -->
+<section class="section" id="compare" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head center" style="margin-inline:auto;text-align:center">
+      <span class="kicker" style="justify-content:center">Educate Yourself</span>
+      <h2>Copper-Lined vs. Conventional Bowls</h2>
+      <p>Tap a material below to see how it really performs where it matters most: health, durability, hygiene.</p>
+    </div>
+    <div class="compare-shell" data-compare-module></div>
+    <div style="margin-top:34px" data-compare-wipe></div>
+    <p class="center tag-note mt-2">Full breakdown, testing notes, and care guides on the <a href="learn.html" style="color:var(--copper-deep);text-decoration:underline">Why Copper? page</a>.</p>
+  </div>
+</section>
+
+<!-- ============ SCROLL 4 - FEATURE -> BENEFIT GRID ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center" style="margin-inline:auto;text-align:center">
+      <span class="kicker" style="justify-content:center">Every Feature Earns Its Place</span>
+      <h2>Built around your pet. Designed around your day.</h2>
+    </div>
+    <div class="grid grid-3" id="featureGrid"></div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 5 - CONVERT: SHOP BY COMPANION ============ -->
+<section class="section" style="background:var(--paper);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="split mb-2" style="gap:20px;align-items:end">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="kicker" style="justify-content:center">Find Their Bowl</span>
+      <h2><svg class="blink-cat" viewBox="0 0 90 90" aria-hidden="true"><path d="M28 30 L24 8 L46 22 Z" fill="#8f8578"/><path d="M62 30 L66 8 L44 22 Z" fill="#8f8578"/><ellipse cx="45" cy="52" rx="32" ry="29" fill="#a89a8a"/><g><ellipse cx="33" cy="47" rx="5" ry="6.5" fill="#3f6b52"/><ellipse cx="57" cy="47" rx="5" ry="6.5" fill="#3f6b52"/><circle cx="34.4" cy="44.8" r="1.6" fill="#fff"/><circle cx="58.4" cy="44.8" r="1.6" fill="#fff"/><rect class="lids" x="26" y="38.5" width="14" height="15" fill="#a89a8a"/><rect class="lids" x="50" y="38.5" width="14" height="15" fill="#a89a8a"/></g><path d="M41 61 Q45 65 49 61" stroke="#2a211b" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>For dogs. For cats. For every life stage.</h2>
+        <p>From first meals in infancy to comfortable senior dining &mdash; Mainstream essentials to Premium signature pieces.</p>
+      </div>
+      <div><a class="btn btn-outline btn-sm" href="shop.html">View all products</a></div>
+    </div>
+    <div class="grid grid-4" id="homeProducts"></div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 6 - LOYALTY/TRUST: REVIEWS + SOCIAL PROOF ============ -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center" style="margin-inline:auto;text-align:center">
+      <span class="kicker" style="justify-content:center">Loved by the Pack</span>
+      <h2>Fur parents talk. So do businesses.<svg class="wag-dog" viewBox="0 0 90 90" aria-hidden="true"><path class="tail" d="M14 64 Q0 56 4 40" stroke="#b87333" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="47" cy="50" r="27" fill="#c99559"/><ellipse cx="35" cy="39" rx="7.5" ry="13" fill="#a9713a" transform="rotate(-20 35 39)"/><ellipse cx="59" cy="39" rx="7.5" ry="13" fill="#a9713a" transform="rotate(20 59 39)"/><circle cx="40" cy="52" r="3.6" fill="#2a211b"/><circle cx="54" cy="52" r="3.6" fill="#2a211b"/><circle cx="41.3" cy="50.7" r="1.1" fill="#fff"/><circle cx="55.3" cy="50.7" r="1.1" fill="#fff"/><ellipse cx="47" cy="61" rx="5.4" ry="4.2" fill="#2a211b"/></svg></h2>
+    </div>
+    <div class="grid grid-2" id="testimonialGrid"></div>
+    <div class="social-strip mt-3">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="social-chip" href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="#1877F2"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+          @nurturerph &bull; 48K followers
+        </a>
+        <a class="social-chip" href="#" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="#000"><path d="M16.6 3c.4 2.1 1.8 3.7 4.4 3.9v3c-1.7 0-3.2-.5-4.4-1.4v6.3c0 3.6-2.6 6.2-6.1 6.2A6 6 0 0 1 4.4 15c0-3.4 2.8-6 6.4-5.8v3.1c-1.9-.3-3.4.9-3.4 2.7 0 1.7 1.3 3 3 3s3-1.3 3-3.2V3z"/></svg>
+          @nurturer.ph &bull; Mealtime ASMR
+        </a>
+        <a class="social-chip" href="#" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24" fill="#E60023"><path d="M12 2a10 10 0 0 0-3.7 19.3c-.1-.8-.2-2 0-2.9l1.3-5.4s-.3-.6-.3-1.6c0-1.5.9-2.6 2-2.6.9 0 1.4.7 1.4 1.5 0 .9-.6 2.3-.9 3.6-.3 1.1.5 2 1.6 2 1.9 0 3.4-2 3.4-5 0-2.6-1.9-4.4-4.5-4.4a4.7 4.7 0 0 0-4.9 4.7c0 .9.4 1.9.8 2.4l.1.4-.3 1.3c-.1.2-.2.3-.4.2-1.4-.7-2.2-2.7-2.2-4.3 0-3.5 2.6-6.8 7.4-6.8 3.9 0 6.9 2.8 6.9 6.5 0 3.9-2.4 7-5.8 7-1.1 0-2.2-.6-2.6-1.3l-.7 2.7c-.3 1-.9 2.2-1.4 2.9A10 10 0 1 0 12 2z"/></svg>
+          Feeding corner inspo
+        </a>
+      </div>
+      <p class="tag-note">Tag <strong>#NurturerMeals</strong> to get featured in our UGC gallery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 7 - CUSTOMIZE CTA + FOUNDATION STRIP ============ -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="cta-banner">
+      <div>
+        <div class="paw-seq" aria-hidden="true">
+          <span><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="16.5" rx="5" ry="4"/><circle cx="6.2" cy="11" r="1.9"/><circle cx="10" cy="8.6" r="1.9"/><circle cx="14" cy="8.6" r="1.9"/><circle cx="17.8" cy="11" r="1.9"/></svg></span>
+          <span><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="16.5" rx="5" ry="4"/><circle cx="6.2" cy="11" r="1.9"/><circle cx="10" cy="8.6" r="1.9"/><circle cx="14" cy="8.6" r="1.9"/><circle cx="17.8" cy="11" r="1.9"/></svg></span>
+          <span><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="16.5" rx="5" ry="4"/><circle cx="6.2" cy="11" r="1.9"/><circle cx="10" cy="8.6" r="1.9"/><circle cx="14" cy="8.6" r="1.9"/><circle cx="17.8" cy="11" r="1.9"/></svg></span>
+          <span><svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="16.5" rx="5" ry="4"/><circle cx="6.2" cy="11" r="1.9"/><circle cx="10" cy="8.6" r="1.9"/><circle cx="14" cy="8.6" r="1.9"/><circle cx="17.8" cy="11" r="1.9"/></svg></span>
+        </div>
+        <span class="tag-note" style="color:#fbe8cf;letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:800">Custom Design Studio &mdash; B2C &amp; B2B</span>
+        <h2>Their name. Your colors. One unforgettable bowl.</h2>
+        <p>Design it online, approve the artwork from your account dashboard, we hand-finish the etch. Businesses can add logos and bulk personalization.</p>
+      </div>
+      <div class="actions">
+        <a class="btn btn-white" href="customize.html">Open the Studio</a>
+        <a class="btn btn-ghost" href="account.html">Track my design approval</a>
+      </div>
+    </div>
+    <div class="card mt-2" style="padding:30px 34px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between;background:linear-gradient(120deg,var(--green-pale),#f2f7ee)">
+      <div style="display:flex;gap:18px;align-items:center;max-width:640px">
+        <div style="width:54px;height:54px;border-radius:16px;background:var(--green);display:grid;place-items:center;color:#fff;flex-shrink:0">
+          <svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 21S4 14.5 4 9a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 9c0 5.5-8 12-8 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h3 style="font-size:20px">Every bowl feeds another.</h3>
+          <p style="font-size:14.5px;color:var(--ink-soft)">5% of profits go to the NURTURER Pet Foundation &mdash; funding shelter feeding programs across the Philippines. You can round up at checkout or donate points.</p>
+        </div>
+      </div>
+      <a class="btn btn-green" href="foundation.html">How giving back works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCROLL 8 - NEWSLETTER CAPTURE + BLOG TEASER ============ -->
+<section class="section tight">
+  <div class="wrap">
+    <div class="newsletter">
+      <div>
+        <h2>Join the pack. Get 10% off your first bowl.</h2>
+        <p>Weekly-to-monthly letters: care tips, new drops, voucher codes, and adoptable pets we support. No spam, ever.</p>
+      </div>
+      <form data-newsletter>
+        <input type="email" placeholder="your@email.com" required aria-label="Email address">
+        <button class="btn btn-primary" type="submit">Sign up</button>
+      </form>
+    </div>
+    <div class="mt-3" style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:14px">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="kicker">Fresh From The Blog</span>
+        <h2 style="font-size:28px">Guides worth a read</h2>
+      </div>
+      <a class="btn btn-outline btn-sm" href="blog.html">All articles</a>
+    </div>
+    <div class="grid grid-3 mt-2" id="blogTeaser"></div>
+  </div>
+</section>
+
+<div id="siteFooter"></div>
+
+<script src="data/products.js"></script>
+<script src="js/main.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/compare.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>
